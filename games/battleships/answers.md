@@ -1,9 +1,10 @@
 ﻿# Battleships Buggy Lab — Answers
 
 ## Team
-- Team name:
-- Partner A:
-- Partner B:
+- Team name: Team Beast
+- Partner A: Rasmus Eriksson
+- Partner B: Anton Baksa
+- Partner C: Linnèa Ljung
 
 ---
 
@@ -24,12 +25,12 @@ Add rows for all major requirements you verify.
 
 Write Pass/Fail/Unsure for each area and explain *how you verified it* (test steps or observation).
 
-- Setup phase:
-- Placement rules:
-- Input commands:
-- Shot resolution:
-- Tracking board:
-- Win condition:
+- Setup phase: Pass
+- Placement rules: Fail
+- Input commands: Pass
+- Shot resolution: Unsure
+- Tracking board: Fail
+- Win condition: Fail
 
 ---
 
@@ -48,15 +49,15 @@ You must list at least:
 - Fix approach: Check both players placed ships when determening if SetupPhase is done. 
 
 ### Bug 2
-- Symptom:
-- Steps to reproduce (exact inputs):
-- Expected (spec):
-- Actual:
-- Suspected root cause (file/function):
-- Fix approach:
+- Symptom: The last ship part when placed can overlap with another ship
+- Steps to reproduce (exact inputs): Place a ship on board. Place another ship on board one cell closer and ship length. 
+- Expected (spec): Geting an Overlap error message
+- Actual: Could place the ship, and override the first ships cell
+- Suspected root cause (file/function): Something in the CanPlaceShip function
+- Fix approach: Removed old piece of code that did nothing usefull
 
 ### Bug 3
-- Symptom:
+- Symptom: Ships could overlap
 - Steps to reproduce (exact inputs):
 - Expected (spec):
 - Actual:

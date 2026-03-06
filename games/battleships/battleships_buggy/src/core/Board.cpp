@@ -16,7 +16,7 @@ namespace bs {
 
     Cell Board::GetCell(Coord c) const
     {
-        if (!InBounds(c)) return Cell::Empty; // BUG: out-of-bounds looks like Empty (hides mistakes)
+        if (!InBounds(c)) return Cell::OutOfBounds; // BUG: out-of-bounds looks like Empty (hides mistakes)
         return m_grid[static_cast<std::size_t>(Index(c))];
     }
 
@@ -38,10 +38,14 @@ namespace bs {
 
             if (!InBounds(c)) return false;
 
+
+            /*
             if (ship.orientation == Orientation::Vertical && i == ship.length - 1)
             {
+                // add overlap code 
                 continue; // BUG: last segment not checked for overlap
             }
+            */
 
             if (GetCell(c) != Cell::Empty) return false;
         }

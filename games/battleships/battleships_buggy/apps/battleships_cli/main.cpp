@@ -83,8 +83,19 @@ int main()
             PlaceResult pr = game.PlaceShipForCurrent(Ship{ length, start, o });
             if (pr != PlaceResult::Ok)
             {
+                std::string errorMessage;
+                switch (pr) {
+                case(PlaceResult::Overlap):
+                        errorMessage = "Ships cannot be placed over other ships";
+                case(PlaceResult::OutOfBounds):
+                    errorMessage = "All of the ship has to fit inside grid, it is not a spaceship!";
+                case(PlaceResult::Invalid):
+                    errorMessage = "This is not a ship, what have you done!";
+                }
+
+
                 // BUG: not informative (spec asks to distinguish OutOfBounds vs Overlap).
-                std::cout << "Could not place ship. (buggy message, no detail)\n";
+                std::cout << "Could not place ship. " << errorMessage << '\n';
                 std::cout << "Press Enter...\n";
                 std::getline(std::cin, line);
             }
