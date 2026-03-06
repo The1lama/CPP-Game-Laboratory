@@ -40,12 +40,12 @@ You must list at least:
 - 3 robustness issues (bad input handling, silent failures, crashes, etc.)
 
 ### Bug 1
-- Symptom:
-- Steps to reproduce (exact inputs):
-- Expected (spec):
-- Actual:
-- Suspected root cause (file/function):
-- Fix approach:
+- Symptom: Only one player has setup phase. Game ends after first round, because the player two has no ships. 
+- Steps to reproduce (exact inputs): Place player one ships on board and press enter.
+- Expected (spec): Player two can place ships on the board.
+- Actual: Bug desc.
+- Suspected root cause (file/function): Setup is considerd finnished as soon as player one is done, player two is not looked at.
+- Fix approach: Check both players placed ships when determening if SetupPhase is done. 
 
 ### Bug 2
 - Symptom:

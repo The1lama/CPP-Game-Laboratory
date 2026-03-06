@@ -92,6 +92,7 @@ int main()
             continue;
         }
 
+
         if (game.State() == GameState::Playing)
         {
             r.PrintTitle("Battleships (BUGGY) - Play");
